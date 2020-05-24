@@ -18,6 +18,7 @@
     4. `gcc -o file_comp_decomp file_comp_decomp.c -lz` which will generate executable out file.
     4. `./file_comp_decomp <file_name> <mode>` where file_name is the file which needs to be compressed or decompressed & mode is whether it needs to be compressed or decompressed
     5. Created `test_files/` for testing various files using the above compression and decompression.
+    6. Myself tested for all various extensions of files. BUT, on github I am pushing only for the files of example run below.
 
 ## Example Run:
     ```
@@ -51,3 +52,13 @@
     6. Above errors mentioned for both `def() and inf()` are referred from `zerr()` function.
     7. `main()` function to call the functions to compress or decompress from input arguments.
     8. `def()` compression function uses `Z_BEST_COMPRESSON` among the available compression levels from zlib.h like Z_BEST_SPEED, Z_DEFAULT_COMPRESSION which performed better compared to others.
+
+## Handling edge cases:
+    1. Filename and mode not passed in arguments
+        `file_comp_decomp usage: file_comp_decomp <filename> <mode>`
+
+    2. Incorrect filename passed
+        `Error: file <filename> does not exist! Enter correct filename!`
+
+    3. Folder name passed instead of filename
+        `Error: <filename> is a folder! Enter filename and not folder name!`
