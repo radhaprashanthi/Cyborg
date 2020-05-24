@@ -178,6 +178,7 @@ void zerr(int ret)
     }
 }
 
+/* function to check if the filename is for a file or folder */
 int is_regular_file(const char *path)
 {
     struct stat path_stat;
