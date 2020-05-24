@@ -1,0 +1,86 @@
+This file was created because there was an unexpected exception in Digital.
+Please send this file to digital-simulator@web.de or create an issue at
+GitHub: https://github.com/hneemann/Digital/issues
+
+Manifest: 
+Digital.jar:
+Archiver-Version=Plexus Archiver
+Build-Time=2020-02-01 13:00
+Build-SCM-Revision=v0.24
+Manifest-Version=1.0
+Created-By=Apache Maven
+SplashScreen-Image=icons/splash.png
+Built-By=travis
+Build-Jdk=1.8.0_222
+Main-Class=de.neemann.digital.gui.Main
+
+System properties:
+java.runtime.name=OpenJDK Runtime Environment
+java.vm.version=11.0.3+7-Ubuntu-1ubuntu218.04.1
+java.vm.vendor=Oracle Corporation
+java.vendor.url=http://java.oracle.com/
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.compressedOopsMode=32-bit
+java.runtime.version=11.0.3+7-Ubuntu-1ubuntu218.04.1
+java.awt.graphicsenv=sun.awt.X11GraphicsEnvironment
+java.io.tmpdir=/tmp
+java.vm.specification.vendor=Oracle Corporation
+java.library.path=/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib
+java.class.version=55.0
+java.specification.name=Java Platform API Specification
+java.awt.printerjob=sun.print.PSPrinterJob
+java.specification.version=11
+java.class.path=Digital.jar
+java.vm.specification.version=11
+java.home=/usr/lib/jvm/java-11-openjdk-amd64
+java.specification.vendor=Oracle Corporation
+java.vm.info=mixed mode, sharing
+java.version=11.0.3
+java.vendor=Oracle Corporation
+java.version.date=2019-04-16
+java.vendor.url.bug=http://bugreport.java.com/bugreport/
+
+os.arch=amd64
+os.name=Linux
+os.version=4.15.0-54-generic
+
+thread: AWT-EventQueue-0
+
+exception: 
+java.lang.NullPointerException
+	at de.neemann.digital.gui.components.CircuitComponent.editAttributes(CircuitComponent.java:1185)
+	at de.neemann.digital.gui.components.CircuitComponent.access$4900(CircuitComponent.java:55)
+	at de.neemann.digital.gui.components.CircuitComponent$MouseControllerNormal.clicked(CircuitComponent.java:1607)
+	at de.neemann.digital.gui.components.CircuitComponent$MouseDispatcher.mouseReleased(CircuitComponent.java:1471)
+	at java.desktop/java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:297)
+	at java.desktop/java.awt.Component.processMouseEvent(Component.java:6632)
+	at java.desktop/javax.swing.JComponent.processMouseEvent(JComponent.java:3342)
+	at java.desktop/java.awt.Component.processEvent(Component.java:6397)
+	at java.desktop/java.awt.Container.processEvent(Container.java:2263)
+	at java.desktop/java.awt.Component.dispatchEventImpl(Component.java:5008)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2321)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4840)
+	at java.desktop/java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4918)
+	at java.desktop/java.awt.LightweightDispatcher.processMouseEvent(Container.java:4547)
+	at java.desktop/java.awt.LightweightDispatcher.dispatchEvent(Container.java:4488)
+	at java.desktop/java.awt.Container.dispatchEventImpl(Container.java:2307)
+	at java.desktop/java.awt.Window.dispatchEventImpl(Window.java:2772)
+	at java.desktop/java.awt.Component.dispatchEvent(Component.java:4840)
+	at java.desktop/java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:721)
+	at java.desktop/java.awt.EventQueue$4.run(EventQueue.java:715)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:745)
+	at java.desktop/java.awt.EventQueue$5.run(EventQueue.java:743)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at java.base/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85)
+	at java.desktop/java.awt.EventQueue.dispatchEvent(EventQueue.java:742)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:90)

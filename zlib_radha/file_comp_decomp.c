@@ -1,7 +1,9 @@
 /* file_comp_decomp.c: used to compress and decompress a file using zlib's inflate() and deflate() */
 
 #include <stdio.h>
+#include <sys/stat.h>
 #include <string.h>
+#include <stdlib.h>
 #include <assert.h>
 #include "zlib.h"
 
@@ -176,6 +178,13 @@ void zerr(int ret)
     }
 }
 
+int is_regular_file(const char *path)
+{
+    struct stat path_stat;
+    stat(path, &path_stat);
+    return S_ISREG(path_stat.st_mode);
+}
+
 /* compress or decompress from stdin to stdout */
 int main(int argc, char **argv)
 {
@@ -186,28 +195,49 @@ int main(int argc, char **argv)
     }
 
     int ret;
-
-    /* avoid end-of-line conversions */
-
-    FILE *ptr_in = fopen(argv[1],"rb");
-    char *s[2];
-    char *p;
+    char *s[10], *p;
     int i = 0;
-    p = strtok (argv[1],".");
+    char out_filename[100];
+    FILE *ptr_in, *ptr_out;
 
-    while (p!= NULL)
-    {
-        s[i] = (char *)p;
-        i+=1;
-        p = strtok (NULL, ".");
+    /* check if file exists or not to open */
+    if(access(argv[1], F_OK) != -1) {
+        ptr_in = fopen(argv[1],"rb");
+    } else {
+        printf("Error: file %s does not exist! Enter correct filename!\n", argv[1]);
+        return 1;
     }
 
-    char out_filename[100];
-    strcpy(out_filename, s[0]);
-    strcat(out_filename, "_out.");
-    strcat(out_filename, s[1]);
+    /* check if the filename is a folder */
+    if(is_regular_file(argv[1]) == 0) {
+        printf("Error: %s is a folder! Enter filename and not folder name!\n", argv[1]);
+        return 1;
+    }
+
+    /* if the file name has any extension split the file name*/
+    if (strchr(argv[1], '.') != NULL) {
+        p = strtok (argv[1],".");
+        while (p!= NULL)
+        {
+            s[i] = (char *)p;
+            i+=1;
+            p = strtok (NULL, ".");
+        }
+        strcpy(out_filename, s[0]);
+        strcat(out_filename, "_out.");
+        for (int j = 1; j<i; j++){
+            strcat(out_filename, s[j]);
+            if (j < i-1)
+                strcat(out_filename, ".");
+        }
+    } else {
+        strcpy(out_filename, argv[1]);
+        strcat(out_filename, "_out");
+    }
+
     printf("output filename = %s\n", out_filename);
-    FILE *ptr_out = fopen(out_filename,"w");
+    ptr_out = fopen(out_filename,"w");
+    free(p);
 
     if (argc == 3) {
         /* do compression if mode is comp */
@@ -231,4 +261,5 @@ int main(int argc, char **argv)
             return 1;
         }
     }
+    return 0;
 }
