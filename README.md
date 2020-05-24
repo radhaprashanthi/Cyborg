@@ -12,13 +12,32 @@
 
 
 ## Execution Details:
-    1. run `./configure`
-    2. Next, run `make` to build all required essentials from zlib 
-    3. `make run file_comp_dcomp` which will create object file for our program to run with required arguments
-    4. `./file_comp_dcomp <file_name> <mode>` where file_name is the file which needs to be compressed or decompressed & mode is whether it needs to be compressed or decompressed
+    1. cd zlib_radha/
+    2. run `./configure`
+    3. Next, run `make` to build all required essentials from zlib.
+    4. `gcc -o file_comp_decomp file_comp_decomp.c -lz` which will generate executable out file.
+    4. `./file_comp_decomp <file_name> <mode>` where file_name is the file which needs to be compressed or decompressed & mode is whether it needs to be compressed or decompressed
+    5. Created `test_files/` for testing various files using the above compression and decompression.
 
-## Example output:
+## Example Run:
     ```
+    gcc -o file_comp_decomp file_comp_decomp.c -lz
+
+    Compresssion:
+    ./file_comp_decomp test_files/WP.csv comp
+    
+    output:
+        output_filename = tset_files/WP_out.csv
+        actual_file_size = 109394
+        compressed_file_size = 38644
+
+    Decompression:
+    ./file_comp_decomp test_files/WP_out.csv decomp
+
+    output:
+        output_filename = test_files/WP_out_out.csv
+        actual_file_size = 38644
+        decompressed_file_size = 109394
 
     ```
 
