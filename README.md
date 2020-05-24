@@ -18,7 +18,8 @@
     4. `gcc -o file_comp_decomp file_comp_decomp.c -lz` which will generate executable out file.
     4. `./file_comp_decomp <file_name> <mode>` where file_name is the file which needs to be compressed or decompressed & mode is whether it needs to be compressed or decompressed
     5. Created `test_files/` for testing various files using the above compression and decompression.
-    6. Myself tested for all various extensions of files. BUT, on github I am pushing only for the files of example run below.
+    6. Tested for all various extensions present in `test_files/`. BUT, on github pushing only compressed/decompressed files of example run below
+    7. Remaining files available in `test_files/` are for testing for users.
 
 ## Example Run:
     ```
