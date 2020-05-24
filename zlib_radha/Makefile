@@ -389,9 +389,6 @@ distclean: clean zconf zconf.h.cmakein docs
 tags:
 	etags $(SRCDIR)*.[ch]
 
-file_comp_decomp : file_comp_decomp.c
-	gcc ${CFLAGS} -o file_comp_decomp file_comp_decomp.c -lz
-
 adler32.o zutil.o: $(SRCDIR)zutil.h $(SRCDIR)zlib.h zconf.h
 gzclose.o gzlib.o gzread.o gzwrite.o: $(SRCDIR)zlib.h zconf.h $(SRCDIR)gzguts.h
 compress.o example.o minigzip.o uncompr.o: $(SRCDIR)zlib.h zconf.h
